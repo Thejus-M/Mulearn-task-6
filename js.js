@@ -58,8 +58,8 @@ async function repos_info_get(){
     div1.appendChild(my_repo_text);
 
     for(i=0;i<data.length;i++){
-        br=document.createElement('br');
-        box.appendChild(br);
+        // br=document.createElement('br');
+        // box.appendChild(br);
     
         let div2 = document.createElement('div');
         div2.classList.add('repo');
@@ -79,6 +79,7 @@ async function repos_info_get(){
         div2.appendChild(desc_info);
     }
 }
+
 basic_info_get();
 repos_info_get();
 
