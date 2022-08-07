@@ -7,7 +7,7 @@ ul {
     padding: 0;
     overflow: hidden;
     border: 1px solid #e7e7e7;
-    background-color: #f3f3f3;
+    background-color: #cccccc;
 }
 
 li {
@@ -49,6 +49,6 @@ img{
     padding: 3px;
 }
 .repo{
-    border: #ff03b3 3px solid;
+    border: #0a832e 3px solid;
     margin: 3px;
 }
