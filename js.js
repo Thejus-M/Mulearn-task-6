@@ -20,7 +20,13 @@ async function basic_info_get(){
     profile_pic.src = `${data.avatar_url}`
     card.append(profile_pic);
 
-    github_url=document.createElement('p');
+    br=document.createElement('br');
+    card.appendChild(br);
+    br=document.createElement('br');
+    card.appendChild(br);
+
+    github_url=document.createElement('a');
+    github_url.href=`${data.html_url}`;
     github_url.textContent = `${data.html_url}`
     card.appendChild(github_url);
 
@@ -35,21 +41,51 @@ async function basic_info_get(){
     
 }
 
-// async function repos_info_get(){
+async function repos_info_get(){
     
-//     const res = await fetch('https://api.github.com/users/thejus-m/repos');
-//     const data = await res.json()
+    const res = await fetch('https://api.github.com/users/thejus-m/repos');
+    const data = await res.json()
     
-//     br=document.createElement('br');
-//     box.appendChild(br);
+    br=document.createElement('br');
+    box.appendChild(br);
+    
+    let div1 = document.createElement('div');
+    div1.classList.add('card');
+    box.appendChild(div1)
+    
+    const my_repo_text = document.createElement('h2');
+    my_repo_text.textContent="My Repos";
+    div1.appendChild(my_repo_text);
 
-//     let div = document.createElement('div');
-//     div.classList.add('card');
-//     box.appendChild(div)
+    for(i=0;i<data.length;i++){
+        br=document.createElement('br');
+        box.appendChild(br);
+    
+        let div2 = document.createElement('div');
+        div2.classList.add('repo');
+        div1.appendChild(div2)
 
-//     const repo_info = document.createElement('h2');
-//     repo_info.textContent="Basic Info"+`${data.repo.name}`;
-//     card.appendChild(repo_info);
-// }
+        const repo_info = document.createElement('h2');
+        repo_info.textContent="Repo Name :"+`${data[i].name}`;
+        div2.appendChild(repo_info);
+        
+        const repo_link = document.createElement('a');
+        repo_link.href=`${data[i].html_url}`;
+        repo_link.textContent=`${data[i].html_url}`;
+        div2.appendChild(repo_link);
+
+        const desc_info = document.createElement('p');
+        desc_info.textContent="Description :"+`${data[i].description}`;
+        div2.appendChild(desc_info);
+    }
+}
 basic_info_get();
 repos_info_get();
+
+
+
+
+
+
+
+    
