@@ -35,3 +35,13 @@ img{
     text-align: center;
     align-items: center;
 }
+.card{
+    border: #04AA6D 3px solid;
+}
+.about{
+    border: #ff0303 3px solid;
+}
+.box{
+    border: #37c400 3px solid;
+    padding: 3px;
+}
